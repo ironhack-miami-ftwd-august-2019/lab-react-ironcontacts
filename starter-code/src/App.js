@@ -1,39 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AddContact from './AddContact'
+import SortContacts from './SortContacts'
+import ShowContacts from './ShowContacts'
 import contacts from './contacts'
-console.log(contacts)
 
-function compare( a, b ) {
-  if ( a.name < b.name ){
-    return -1;
-  }
-  if ( a.name > b.name ){
-    return 1;
-  }
-  return 0;
-}
+console.log(contacts.length)
 
-function compareNames( a, b ) {
-  if ( a.name < b.name ){
-    return -1;
-  }
-  if ( a.name > b.name ){
-    return 1;
-  }
-  return 0;
-}
-
-
-function comparePops( a, b ) {
-  if ( a.popularity < b.popularity ){
-    return 1;
-  }
-  if ( a.popularity > b.popularity ){
-    return -1;
-  }
-  return 0;
-}
 
 class App extends Component {
 
@@ -42,20 +16,17 @@ class App extends Component {
     allContacts  : contacts
   }
 
-  showTheContacts = () => {
-    let listOfContacts = this.state.showContacts.map((eachContact, i)=>{ //looping
-      return ( 
-            <li key={i}>
-              <img src={eachContact.pictureUrl}/>
-              <p>{eachContact.name}</p>
-              <p>{eachContact.popularity}</p>
-              <button onClick={()=>this.deleteContact(i)}>Delete {i}</button>
-            </li>
-      )
-    })
-    return listOfContacts
-  }
   
+
+  deleteContact = (index) => {
+    console.log('delete ',index)
+    let contactList = [...this.state.showContacts]
+    contactList.splice(index,1)
+    this.setState({
+      showContacts: contactList
+    })
+  }
+
   addContact = () => {
     let randomIndex = Math.floor(Math.random()*this.state.allContacts.length)
     let randomContact = this.state.allContacts[randomIndex]
@@ -86,26 +57,44 @@ class App extends Component {
     })
   }
 
-  deleteContact = (index) => {
-    console.log('delete ',index)
-    let contactList = [...this.state.showContacts]
-    contactList.splice(index,1)
-    this.setState({
-      showContacts: contactList
-    })
-  }
 
   render() {
+    console.log(this, contacts.length)
     return (
       <div className="App">
-        <button onClick={this.sortByName}>Sort By Name</button>
-        <button onClick={this.sortByPop}>Sort By Pop</button>
 
-        <button onClick={this.addContact}>Add Random Contact</button>
-        {this.showTheContacts()}
+        <SortContacts sortName={this.sortByName} sortPop={this.sortByPop}/>       
+        <AddContact addContactProp={this.addContact} />
+        <ShowContacts showContacts={this.state.showContacts} deleteContactProp={this.deleteContact}/>
+      
       </div>
     );
   }
 }
 
 export default App;
+
+
+
+
+
+function compareNames( a, b ) {
+  if ( a.name < b.name ){
+    return -1;
+  }
+  if ( a.name > b.name ){
+    return 1;
+  }
+  return 0;
+}
+
+
+function comparePops( a, b ) {
+  if ( a.popularity < b.popularity ){
+    return 1;
+  }
+  if ( a.popularity > b.popularity ){
+    return -1;
+  }
+  return 0;
+}
