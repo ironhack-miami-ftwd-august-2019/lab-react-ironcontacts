@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/lab-react-ironcontacts/static/css/main.93f762c5.chunk.css",
+    "main.js": "/lab-react-ironcontacts/static/js/main.3e459139.chunk.js",
+    "main.js.map": "/lab-react-ironcontacts/static/js/main.3e459139.chunk.js.map",
+    "runtime-main.js": "/lab-react-ironcontacts/static/js/runtime-main.6bd7ad47.js",
+    "runtime-main.js.map": "/lab-react-ironcontacts/static/js/runtime-main.6bd7ad47.js.map",
+    "static/js/2.883e9ecb.chunk.js": "/lab-react-ironcontacts/static/js/2.883e9ecb.chunk.js",
+    "static/js/2.883e9ecb.chunk.js.map": "/lab-react-ironcontacts/static/js/2.883e9ecb.chunk.js.map",
+    "index.html": "/lab-react-ironcontacts/index.html",
+    "precache-manifest.b19a2a6976adfc276989571d1b8dda6a.js": "/lab-react-ironcontacts/precache-manifest.b19a2a6976adfc276989571d1b8dda6a.js",
+    "service-worker.js": "/lab-react-ironcontacts/service-worker.js",
+    "static/css/main.93f762c5.chunk.css.map": "/lab-react-ironcontacts/static/css/main.93f762c5.chunk.css.map",
+    "static/media/logo.svg": "/lab-react-ironcontacts/static/media/logo.5d5d9eef.svg"
+  }
+}
